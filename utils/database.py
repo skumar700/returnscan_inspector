@@ -19,6 +19,7 @@ def log_inspection(
     disposition: str,
     grader_reasoning: str,
     confidence_level: str,
+    flags: list,
     raw_observer_response: str,
     raw_grader_response: str
 ) -> dict:
@@ -38,7 +39,8 @@ def log_inspection(
             "confidence_level": confidence_level,
             "raw_observer_response": raw_observer_response,
             "raw_grader_response": raw_grader_response
-        }
+            "flags": flags,        
+            }
 
         result = supabase.table("inspections").insert(record).execute()
         return {"success": True, "data": result.data}

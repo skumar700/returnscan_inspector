@@ -80,6 +80,7 @@ with col_left:
                 confidence_level=grader_result["confidence"],
                 raw_observer_response=observer_result["raw_response"],
                 raw_grader_response=grader_result["raw_response"]
+                flags=grader_result.get("flags", []),
             )
 
             if not log_result["success"]:
